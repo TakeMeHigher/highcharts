@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="container" style="width: 600px;height:400px;"></div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="/static/js/highstock.js"></script>
+<script src="/static/js/highcharts-zh_CN.js"></script>
+
+<script>
+{#    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {#}
+{#        // Create the chart#}
+{#        console.log(data)#}
+{#        chart = Highcharts.stockChart('container', {#}
+{##}
+{#            rangeSelector: {#}
+{#                selected: 1#}
+{#            },#}
+{##}
+{#            title: {#}
+{#                text: 'AAPL Stock Price'#}
+{#            },#}
+{##}
+{#            series: [{#}
+{#                name: 'AAPL',#}
+{#                data: data,#}
+{#                tooltip: {#}
+{#                    valueDecimals: 2#}
+{#                }#}
+{#            }]#}
+{#        });#}
+{#    });#}
+    chart = Highcharts.stockChart('container', {
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            title: {
+                text: 'AAPL Stock Price'
+            },
+
+            series: [{
+                name: 'AAPL',
+                data: [
+
+                ],
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+
+    // chart.series[0].addPoint([1522086400000, 118]);
+
+
+</script>
+
+</body>
+</html>

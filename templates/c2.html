@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" onclick="addSeries()" value="添加一个人">
+<input type="button" onclick="addItem()" value="添加一个值">
+<input type="button" onclick="updateItem()" value="更新一个值">
+<input type="button" onclick="delItem()" value="删除一个值">
+<input type="button" onclick="delSeries()" value="删除一个人">
+
+<div id="container" style="width: 600px;height:400px;"></div>
+
+
+<script src="/static/js/highcharts.js"></script>
+<script src="/static/js/highcharts-zh_CN.js"></script>
+<script>
+    var options = {
+        title: {
+            text: '我的第一个图表'                 // 标题
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                formatter: function () {
+                    return Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.value);
+                },
+                rotation: 30
+            }
+
+        },
+        yAxis: {
+            title: {
+                text: '吃水果个数'                // y 轴标题
+            }
+        },
+        series: [{                              // 数据列
+            name: '小明',                        // 数据列名
+            data: [
+                [1501689804077.358, 1.0],
+                [1501689814077.358, 8.0],
+                [1501689824077.358, 3.0]
+            ]                     // 数据
+        },
+            {
+                name: '小赵',
+                data: [
+                    [1501689814077.358, 8.0],
+                    [1501689819077.358, 18.0],
+                    [1501689825077.358, 4.0]
+                ]                     // 数据
+            }
+        ]
+    };
+    // 图表初始化函数
+    var chart = Highcharts.chart('container', options);
+
+    function addSeries() {
+        chart.addSeries({
+            name: '小刘', data: [
+                [1501689814077.358, 18.0],
+                [1501689819077.358, 8.0],
+                [1501689825077.358, 3.0]
+            ]
+        });
+    }
+    function updateItem() {
+        //$('#id1').highcharts()
+        chart.series[0].data[0].update(66);
+    }
+    function addItem() {
+        chart.series[0].addPoint([1501689825077, 18]);
+    }
+
+    function delItem() {
+        chart.series[0].data[1].remove();
+    }
+    function delSeries() {
+        chart.series[0].remove(false);
+    }
+
+</script>
+</body>
+</html>
